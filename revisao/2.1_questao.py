@@ -15,14 +15,14 @@ def operacao(operador,num):
     print(f"{resultado} = {eval(resultado)}")
 
 while True:
-    operador = "+"#str(input("qual operação deseja fazer? "))
+    operador = str(input("qual operação deseja fazer? "))
 
-    termos = 2#int(input("e com quantos números deseja fazer? "))
+    termos = int(input("e com quantos números deseja fazer? "))
 
     lista_termos = []
 
     for x in range(0,termos):
-        lista_termos.append(2)#int(input("digite o numero: ")))
+        lista_termos.append(int(input("digite o numero: ")))
 
     operacao(operador,lista_termos)
 
