@@ -2,7 +2,7 @@
 def lerNumero(exibir):
     return(int(input(str(exibir))))
 
-def operacao(operador,*num):
+def operacao(operador,num):
     seq = []
 
     for x in range(0,len(num)):
@@ -13,17 +13,19 @@ def operacao(operador,*num):
     resultado = "".join(seq)
 
     print(f"{resultado} = {eval(resultado)}")
-    
-num1 = lerNumero("digite um numero: ")
-num2 = lerNumero("digite outro numero: ")
-num3 = lerNumero("digite outro numero: ")
 
-print(" ")
+while True:
+    operador = "+"#str(input("qual operação deseja fazer? "))
 
-operacao("+",num1,num2,num3,)
-operacao("-",num1,num2)
-operacao("*",num1,num2,num3)
-operacao("/",num1,num2)
-operacao("**",num1,num2)
+    termos = 2#int(input("e com quantos números deseja fazer? "))
 
+    lista_termos = []
 
+    for x in range(0,termos):
+        lista_termos.append(2)#int(input("digite o numero: ")))
+
+    operacao(operador,lista_termos)
+
+    resposta = input("deseja fazer outra operação? ")
+    if resposta.lower == "não" or "nao":
+        break
