@@ -1,16 +1,13 @@
 
-def lerNumero(exibir):
-    return(int(input(str(exibir))))
-
 def operacao(operador,num):
-    seq = []
+    sequencia = []
 
     for x in range(0,len(num)):
-        seq.append(str(num[x]))
-        seq.append(operador)       
-    seq.pop(len(seq)-1)
+        sequencia.append(str(num[x]))
+        sequencia.append(operador)
+    sequencia.pop(len(sequencia)-1)
 
-    resultado = "".join(seq)
+    resultado = "".join(sequencia)
 
     print(f"{resultado} = {eval(resultado)}")
 
