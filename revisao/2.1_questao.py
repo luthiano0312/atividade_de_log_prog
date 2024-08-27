@@ -1,5 +1,4 @@
-
-def operacao(operador,num):
+def operar(operador,num):
     sequencia = []
 
     for x in range(0,len(num)):
@@ -11,18 +10,29 @@ def operacao(operador,num):
 
     print(f"{resultado} = {eval(resultado)}")
 
+operacao = ("+","-","*","/","**")
+
 while True:
-    operador = str(input("qual operação deseja fazer? "))
-
-    termos = int(input("e com quantos números deseja fazer? "))
-
     lista_termos = []
+    operador = str(input("qual operação deseja fazer? "))
+    if operador not in operacao:
+        print("digite um valor válido")
+        continue
+    try:
+        termos = int(input("e com quantos números deseja fazer? "))
+    except:
+        print("digite um valor válido")
+        continue
 
-    for x in range(0,termos):
-        lista_termos.append(int(input("digite o numero: ")))
+    try:
+        for x in range(0,termos):
+            lista_termos.append(int(input("digite o numero: ")))
+    except:
+        print("digite um valor válido")
+        continue
 
-    operacao(operador,lista_termos)
+    operar(operador,lista_termos)
 
     resposta = input("deseja fazer outra operação? ")
-    if resposta.lower == "não" or "nao":
+    if resposta.lower == "nao":
         break
