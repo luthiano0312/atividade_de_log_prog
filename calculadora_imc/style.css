@@ -1,0 +1,87 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(247, 247, 247);
+}
+
+#calculadora {
+    box-shadow: 3px 3px 5px rgb(199, 199, 199);
+    background-color: white;
+    margin-top: 75px;
+    display: flex;
+    max-width: 700px;
+    height: 400px;
+    width: 75%;
+    flex-direction: column;
+}
+#cabeca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60px;
+    background-color: rgb(233, 233, 233);
+}
+
+#corpo {
+    display: flex;  
+    height: 300px;
+    padding: 20px;
+}
+
+#informacoes {
+    max-width: 330px;
+}
+
+#resultado {
+    max-width: 330px;
+}
+
+#formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+}
+
+#botao {
+    height: 50px;
+    width: 330px;
+    font-size: 30px;
+    font-family: Arial;
+
+}
+
+#cabecaImc {
+    width: 330px;
+}
+
+._input {
+    font-size: 30px;
+    box-shadow: 0px 2px rgb(233, 233, 233);
+    height: 50px;
+    width: 330px;
+    border: 0px;
+    padding: 0px;
+}
+
+._input2 {
+    margin-left: 40px;
+    font-size: 30px;
+    height: 50px;
+    width: 290px;
+    border: 0px;
+    padding: 0px
+}
+
+.h1 {
+    font-size: 17px;
+    margin-left: 20px;
+    font-family: Arial;
+}
+
+.h2 {
+    font-size: 15px;
+    margin-left: 40px;
+    font-family: Arial;
+}
