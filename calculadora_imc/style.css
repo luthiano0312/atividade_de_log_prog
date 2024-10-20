@@ -123,13 +123,13 @@ body {
         max-width: 310px;
     }
 
-    #corpoImc {
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
     ._input {
         max-width: 310px;
+    }
+
+    ._input2 {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .h2 {
