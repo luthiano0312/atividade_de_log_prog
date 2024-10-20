@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora imc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <div id="calculadora">
+        <div id="cabeca">
+            <h1 class="h1">calculadora de IMC</h1>
+        </div>
+
+        <div id="corpo">
+            <div id="informacoes">
+                <form id="formulario">
+                    <input type="number" id="altura" placeholder="altura" class="_input">
+                    <input type="number" id="peso" placeholder="peso" class="_input">
+                    <button type="button" id="botao" onclick="calcular()">calcular</button>
+                </form>
+            </div>
+
+            <div id="resultado">
+                <div id="seuImc">
+                    <div id="cabecaImc">
+                        <h2 class="h2">seu IMC:</h2>
+                    </div>
+
+                    <div id="corpoImc">
+                        <input type="text" id="saidaImc" class="_input2" readonly>
+                    </div>
+                </div>
+
+                <div id="classificacao">
+                    <div id="cabecaClassificacao">
+                        <h2 class="h2">sua classificação:</h2>
+                    </div>
+
+                    <div id="corpoClassificacao">
+                        <input type="text"  id="saidaClassificacao" class="_input2" readonly>
+                    </div>
+                </div>
+
+                <div id="recomendado">
+                    <div id="cabecaRecomendado">
+                        <h2 class="h2">recomendação para peso ideal: </h2>
+                    </div>
+
+                    <div id="corpoRecomendado">
+                        <input type="text" id="saidaRecomendado" class="_input2" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>    
+</body>
+</html>
