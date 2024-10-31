@@ -13,7 +13,7 @@ function calcular() {
     if(isNaN(imc)){
         document.getElementById("saidaImc").value = "";
     }else {
-        document.getElementById("saidaImc").value = String(imc);
+        document.getElementById("saidaImc").value = String(imc.toFixed(2));
     }
     
     //saida da clasicicação 
@@ -36,6 +36,6 @@ function calcular() {
     //recomendação para peso ideal baseado na altura do usuário
     let pesoIdeal = 22*altura**2
     if (pesoIdeal != 0){
-        document.getElementById("saidaRecomendado").value = String(pesoIdeal);
+        document.getElementById("saidaRecomendado").value = String(pesoIdeal.toFixed(2));
     }   
 }
