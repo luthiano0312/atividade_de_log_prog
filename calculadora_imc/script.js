@@ -57,6 +57,7 @@ function darkMode() {
     let botao_darkMode = document.getElementById("botao_darkMode");
     let cor = corpo.style.backgroundColor;
 
+    //alterna entre modo escuro e claro 
     if(cor == "rgb(9, 9, 9)") {
         //branco
         corpo.style.backgroundColor = "rgb(247, 247, 247)";
@@ -72,19 +73,26 @@ function darkMode() {
 
         altura.style.backgroundColor = "white";
         altura.style.boxShadow = "0px 2px rgb(233, 233, 233)";
+        altura.style.color = "black";
 
         peso.style.backgroundColor = "white"
         peso.style.boxShadow = "0px 2px rgb(233, 233, 233)";
+        peso.style.color = "black";
 
         saidaImc.style.backgroundColor = "white";
+        saidaImc.style.color = "black";
+
         saidaClassificacao.style.backgroundColor = "white";
+        saidaClassificacao.style.color = "black";
+
         saidaRecomendado.style.backgroundColor = "white";
+        saidaRecomendado.style.color = "black";
 
         cabecaImc.style.color = "black";
         cabecaClassificacao.style.color = "black";
         cabecarecomendado.style.color = "black";
 
-        botao_darkMode.style.backgroundColor = "rgb(233, 233, 233)",
+        botao_darkMode.style.backgroundColor = "rgb(233, 233, 233)";
         botao_darkMode.style.color = "black";
         botao_darkMode.innerText = "MODO ESCURO";
 
@@ -103,19 +111,26 @@ function darkMode() {
 
         altura.style.backgroundColor = "rgb(7, 7, 7)";
         altura.style.boxShadow = "0px 2px rgb(35, 35, 35)";
+        altura.style.color = "rgb(230, 230, 230)";
 
         peso.style.backgroundColor = "rgb(7, 7, 7)";
         peso.style.boxShadow = "0px 2px rgb(35, 35, 35)";
+        peso.style.color = "rgb(230, 230, 230)";
 
         saidaImc.style.backgroundColor = "rgb(20, 20, 20)";
+        saidaImc.style.color = "rgb(230, 230, 230)";
+
         saidaClassificacao.style.backgroundColor = "rgb(20, 20, 20)";
+        saidaClassificacao.style.color = "rgb(230, 230, 230)";
+
         saidaRecomendado.style.backgroundColor = "rgb(20, 20, 20)";
+        saidaRecomendado.style.color = "rgb(230, 230, 230)";
 
         cabecaImc.style.color = "lightgray";
         cabecaClassificacao.style.color = "lightgray";
         cabecarecomendado.style.color = "lightgray";
 
-        botao_darkMode.style.backgroundColor = "rgb(35, 35, 35)",
+        botao_darkMode.style.backgroundColor = "rgb(35, 35, 35)";
         botao_darkMode.style.color = "lightgray";
         botao_darkMode.innerText = "MODO CLARO";
 
