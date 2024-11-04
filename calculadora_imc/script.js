@@ -101,7 +101,7 @@ function darkMode() {
         corpo.style.backgroundColor = "rgb(9, 9, 9)";
 
         calculadora.style.backgroundColor = "rgb(20, 20, 20)";
-        calculadora.style.boxShadow = "3px 3px 5px rgb(20, 20, 20)";
+        calculadora.style.boxShadow = "3px 3px 5px rgb(15, 15, 15)";
 
         cabeca_calcu.style.backgroundColor = "rgb(35, 35, 35)";
         cabeca_calcu.style.color = "lightgray";
