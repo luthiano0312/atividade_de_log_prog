@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div id="cabeca">
+        <div id="cabecaEsquerda">
+            <button id="azul" onclick="mudarCor('left','blue')" class="botaoCabeca"></button>
+            <button id="verde" onclick="mudarCor('left','green')" class="botaoCabeca"></button>
+            <button id="vermelho" onclick="mudarCor('left','red')" class="botaoCabeca"></button>
+            <button id="amarelo" onclick="mudarCor('left','yellow')" class="botaoCabeca"></button>
+            <button id="rosa" onclick="mudarCor('left','pink')" class="botaoCabeca"></button>
+        </div>
+
+        <button id="reset" onclick="resetPlacar()">resetar</button>
+
+        <div id="cabecaDireita">
+            <button id="rosa" onclick="mudarCor('right','pink')" class="botaoCabeca"></button>
+            <button id="amarelo" onclick="mudarCor('right','yellow')" class="botaoCabeca"></button>
+            <button id="vermelho" onclick="mudarCor('right','red')" class="botaoCabeca"></button>
+            <button id="verde" onclick="mudarCor('right','green')" class="botaoCabeca"></button>
+            <button id="azul" onclick="mudarCor('right','blue')" class="botaoCabeca"></button>
+        </div>
+    </div>
+
+    <div id="corpo">
+
+        <button id="left" onclick="addPlacar('left')" class="botao">0</button>
+        <button id="right" onclick="addPlacar('right')" class="botao">0</button>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
