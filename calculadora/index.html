@@ -7,7 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div id="calculadora">
+        <div id="display_div">
+            <input type="text" id="display" readonly>
+        </div>
+
+        <div id="botoes">
+
+            <div id="1layer" class="layer">
+                <button id="button7" onclick="addDisplay('7')" class="botao numero">7</button>
+                <button id="button8" onclick="addDisplay('8')" class="botao numero">8</button>
+                <button id="button9" onclick="addDisplay('9')" class="botao numero">9</button>
+                <button id="button+" onclick="addDisplay('+')" class="botao operacao">+</button>
+            </div>
+
+            <div id="2layer" class="layer">
+                <button id="button4" onclick="addDisplay('4')" class="botao numero">4</button>
+                <button id="button5" onclick="addDisplay('5')" class="botao numero">5</button>
+                <button id="button6" onclick="addDisplay('6')" class="botao numero">6</button>
+                <button id="button-" onclick="addDisplay('-')" class="botao operacao">-</button>
+            </div>
+
+            <div id="3layer" class="layer">
+                <button id="button1" onclick="addDisplay('1')" class="botao numero">1</button>
+                <button id="button2" onclick="addDisplay('2')" class="botao numero">2</button>
+                <button id="button3" onclick="addDisplay('3')" class="botao numero">3</button>
+                <button id="button*" onclick="addDisplay('x')" class="botao operacao">x</button>
+            </div>
+
+            <div id="4layer" class="layer">
+                <button id="button+-" onclick="altSinal()" class="botao numero">+/-</button>
+                <button id="button0" onclick="addDisplay('0')" class="botao numero">0</button>
+                <button id="button." onclick="addDisplay('.')" class="botao numero">.</button>
+                <button id="button/" onclick="addDisplay('÷')" class="botao operacao">÷</button>
+            </div>
+
+            <div id="5layer" class="layer">
+                <button id="resolver" onclick="resolver()" class="botao">=</button>
+                <button id="limpar" onclick="limpar()" class="botao">C</button>
+                <button id="apagar" onclick="apagar()" class="botao">X</button>
+            </div>
+
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
