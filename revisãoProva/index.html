@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <input type="text" id="input1">
+        <button onclick="funcaoValor()">valor</button>
+    </div>
+
+    <div>
+        <input type="text" id="input2">
+        <button onclick="funcaoAdicionaValor()">adiciona</button>
+        <button onclick="funcaoAlteraValor()">remove</button>
+    </div>
+
+    <div id="div1">
+        <button onclick="funcaoAdicionaTexto()">😃</button>
+        <button onclick="funcaoAlteraTexto()">😔</button>
+        <button onclick="funcaoAdicionaMaisTexto()">😎</button>
+        <p id="paragrafo1"></p>
+    </div>
+
+    <div>
+        <button onclick="funcaoRetornaTexto()">valor</button>
+        <p id="lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div>
+        <button onclick="funcaoAdicionaHTML()">link</button>
+        <p id="paragrafo2"></p>
+    </div>
+    <script src="manipulacaoHTML.js"></script>
+</body>
+</html>
