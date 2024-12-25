@@ -86,8 +86,31 @@ function resolver() {
     let valor = Object.values(espacos);
     let chaveOcupado = Object.keys(espacosOcupado);
     let valorOcupado = Object.values(espacosOcupado);
+    let ocorrencia = [];
+
+    for (let a = 0; a < colunas.length; a++) {
+        
+        for (let b = 0; b < colunas[a].length; b++) {
+            
+            let pos = procuraCordenada(colunas[a][b].className);
+            
+            if (colunas[a][b].textContent != "") {
+                espacos[pos] = colunas[a][b].textContent;
+                chave = Object.keys(espacos);
+                valor = Object.values(espacos);
+                espacosOcupado[pos] = colunas[a][b].textContent;
+                chaveOcupado = Object.keys(espacosOcupado);
+                valorOcupado = Object.values(espacosOcupado);
+            }else {
+                espacos[pos] = ["1","2","3","4","5","6","7","8","9"]; 
+                chave = Object.keys(espacos);
+                valor = Object.values(espacos);
+            }
+        }
+    }
 
     while (valorOcupado.length != 81) {
+        
         for (let a = 0; a < colunas.length; a++) {
         
             for (let b = 0; b < colunas[a].length; b++) {
@@ -101,10 +124,6 @@ function resolver() {
                     espacosOcupado[pos] = colunas[a][b].textContent;
                     chaveOcupado = Object.keys(espacosOcupado);
                     valorOcupado = Object.values(espacosOcupado);
-                }else {
-                    espacos[pos] = ["1","2","3","4","5","6","7","8","9"]; 
-                    chave = Object.keys(espacos);
-                    valor = Object.values(espacos);
                 }
             }
         }
@@ -138,7 +157,7 @@ function resolver() {
             }
             return blocoOcupado;
         }
-    
+
         for (let a = 0; a < chave.length; a++) {
             
             if(Array.isArray(valor[a])) {
@@ -146,6 +165,18 @@ function resolver() {
                 let naoCandidatosCol = temNaColuna(chave[a][1]);
                 let naoCandidatosLin = temNaLinha(chave[a][2]);
                 let naoCandidatosBlo = temNoBloco(chave[a][3]);
+
+                for (let b = 0; b < valor.length; b++) {
+                    if (valor[a].length == 1) {
+                        // let col_ = "col"+chave[a][1];
+                        // let lin_ = "lin"+chave[a][2];
+                        // let classe = col_ + " " + lin_;
+                        // let espaco = document.getElementsByClassName(classe);
+                        // // console.log("a",valor[a])
+                        // espaco[0].innerText = valor[a];
+                        // espaco[0].style.color = "aqua";
+                    } 
+                }
     
                 for (let b = 0; b < naoCandidatosCol.length; b++) {
                     let index = valor[a].indexOf(naoCandidatosCol[b])
@@ -166,18 +197,186 @@ function resolver() {
                     }
                     
                 }
-    
-                for (let b = 0; b < valor.length; b++) {
-                    if (valor[a].length == 1) {
-                        let col_ = "col"+chave[a][1];
-                        let lin_ = "lin"+chave[a][2];
-                        let classe = col_ + " " + lin_;
-                        let espaco = document.getElementsByClassName(classe);
-                        espaco[0].innerHTML = valor[a];
-                        espaco[0].style.color = "aqua";
-                    } 
+            }
+        }
+        
+        // por bloco ----------------------------------------------------------
+        
+        for (let a = 1; a <= 9; a++) {
+            
+            for (let b = 0; b < blocos.length; b++) {
+                
+                for (let c = 0; c < blocos[b].length; c++) {   
+
+                    let pos = procuraCordenada(blocos[b][c].className);
+                    let sas = espacos[pos];
+                    if (Array.isArray(sas)) {                            
+                        if (sas.includes(`${a}`)) {
+                            ocorrencia.push(pos);
+                            // console.log(`${a}`,ocorrencia)
+                        }
+                    }
+
                 }
-            }    
-        } 
+
+                switch (ocorrencia.length) {
+                    case 1:
+                        
+                        break;
+                    case 2:
+                        break
+                    case 3:
+                        break
+                        
+                    default:
+                        break;
+                }
+
+                // if (ocorrencia.length == 1) {
+                //     // console.log(`${a}`,ocorrencia)
+                //     let col_ = "col"+ocorrencia[0][1];
+                //     let lin_ = "lin"+ocorrencia[0][2];
+                //     let classe = col_ + " " + lin_;
+                //     let espaco = document.getElementsByClassName(classe);
+                //     let num = `${a}`
+                //     // console.log(`${a}`,ocorrencia)
+                //     // console.log(ocorrencia)
+                //     // console.log(classe)
+                //     // console.log(num)
+                //     espaco[0].innerText = num;
+                //     espaco[0].style.color = "aqua";
+
+                // }else if (ocorrencia.length == 2) {
+                    
+                //     if (ocorrencia[0][1] == ocorrencia[1][1]) {
+                //         let coluna = [];
+                //         for (let d = 0; d <= 8; d++) {
+                //             coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));
+                            
+                //         }
+                        
+                //         for (let d = 0; d < coluna.length; d++) {
+                        
+                //             if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1]) {
+                //                 // return;    
+                //             }else {
+                                
+                //                 if (Array.isArray(espacos[coluna[d]])) {
+                //                     let valor_ = espacos[coluna[d]]
+                //                     for (let b = 0; b < valor_.length; b++) {
+                //                         let index = valor_[b].indexOf(`${a}`)
+                //                         if (index != -1) {
+                //                             espacos[coluna[d]].splice(index, 1);
+                //                             valor = Object.values(espacos);
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                //     // por linha ----------------------------------------------------------------
+                //     // console.log(ocorrencia[0], ocorrencia[1])
+                //     if (ocorrencia[0][2] == ocorrencia[1][2]) {
+                        
+                //         let linha = [];
+                //         for (let d = 0; d <= 8; d++) {
+                //             linha.push(procuraCordenada(linhas[ocorrencia[0][1]-1][d].className));
+                            
+                //         }
+                        
+                //         for (let d = 0; d < linha.length; d++) {
+                        
+                //             if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1]) {
+                //                 // return;    
+                //             }else {
+                                
+                //                 if (Array.isArray(espacos[linha[d]])) {
+                //                     let valor_ = espacos[linha[d]];
+                                    
+                //                     for (let b = 0; b < valor_.length; b++) {
+                //                         let index = valor_[b].indexOf(`${a}`)
+                //                         if (index != -1) {
+                //                             // if (linha[d]=="p612") {
+                //                             //     console.log(espacos[linha[d]],espacos.p612,linha[d],`${a}`)
+                //                             //     console.log(ocorrencia[0][2],ocorrencia[1][2])
+                //                             // }
+                //                             espacos[linha[d]].splice(index, 1);
+                //                             valor = Object.values(espacos);
+                                            
+                                            
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+
+                // }else if (ocorrencia.length == 3) {
+                    
+                //     if (ocorrencia[0][1] == ocorrencia[1][1] && ocorrencia[0][1] == ocorrencia[2][1]) {
+                //         let coluna = [];
+                //         for (let d = 0; d <= 8; d++) {
+                //             coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));
+                            
+                //         }
+
+                //         for (let d = 0; d < coluna.length; d++) {
+                        
+                //             if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1] || coluna[d] == ocorrencia[2]) {
+                //                 // return;      
+                //             }else {
+                                
+                //                 if (Array.isArray(espacos[coluna[d]])) {
+                //                     let valor_ = espacos[coluna[d]]
+                                    
+                //                     for (let b = 0; b < valor_.length; b++) {
+                                        
+                //                         let index = valor_[b].indexOf(`${a}`)
+                //                         if (index != -1) {
+                //                             espacos[coluna[d]].splice(index, 1);
+                //                             valor = Object.values(espacos);
+                                            
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+
+                //     if (ocorrencia[0][1] == ocorrencia[1][1] && ocorrencia[0][1] == ocorrencia[2][1]) {
+                //         let linha = [];
+                //         for (let d = 0; d <= 8; d++) {
+                //             linha.push(procuraCordenada(linhas[ocorrencia[0][1]-1][d].className));
+                            
+                //         }
+
+                //         for (let d = 0; d < linha.length; d++) {
+                        
+                //             if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1] || linha[d] == ocorrencia[2]) {
+                //                 // return;      
+                //             }else {
+                                
+                //                 if (Array.isArray(espacos[linha[d]])) {
+                //                     let valor_ = espacos[linha[d]]
+                                    
+                //                     for (let b = 0; b < valor_.length; b++) {
+                                        
+                //                         let index = valor_[b].indexOf(`${a}`)
+                //                         if (index != -1) {
+                //                             espacos[linha[d]].splice(index, 1);
+                //                             valor = Object.values(espacos);
+                                            
+                //                         }
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+                ocorrencia = []
+            }
+        }
+        // console.log(espacos)
+        break
     }
 }
