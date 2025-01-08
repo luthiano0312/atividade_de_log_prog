@@ -168,13 +168,13 @@ function resolver() {
 
                 for (let b = 0; b < valor.length; b++) {
                     if (valor[a].length == 1) {
-                        // let col_ = "col"+chave[a][1];
-                        // let lin_ = "lin"+chave[a][2];
-                        // let classe = col_ + " " + lin_;
-                        // let espaco = document.getElementsByClassName(classe);
-                        // // console.log("a",valor[a])
-                        // espaco[0].innerText = valor[a];
-                        // espaco[0].style.color = "aqua";
+                        let col_ = "col"+chave[a][1];
+                        let lin_ = "lin"+chave[a][2];
+                        let classe = col_ + " " + lin_;
+                        let espaco = document.getElementsByClassName(classe);
+                        // console.log("a",valor[a])
+                        espaco[0].innerText = valor[a];
+                        espaco[0].style.color = "aqua";
                     } 
                 }
     
@@ -213,7 +213,6 @@ function resolver() {
                     if (Array.isArray(sas)) {                            
                         if (sas.includes(`${a}`)) {
                             ocorrencia.push(pos);
-                            // console.log(`${a}`,ocorrencia)
                         }
                     }
 
@@ -221,162 +220,145 @@ function resolver() {
 
                 switch (ocorrencia.length) {
                     case 1:
+                        let col_ = "col"+ocorrencia[0][1];
+                        let lin_ = "lin"+ocorrencia[0][2];
+                        let classe = col_ + " " + lin_;
+                        let espaco = document.getElementsByClassName(classe);
+                        let num = `${a}`
                         
+                        espaco[0].innerText = num;
+                        espaco[0].style.color = "aqua";
                         break;
                     case 2:
-                        break
-                    case 3:
-                        break
+                        // por bloco ----------------------------------------------------------------------------------------
+                        if (ocorrencia[0][1] == ocorrencia[1][1]) {
+                            let coluna = [];
+
+                            for (let d = 0; d <= 8; d++) {
+                                coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));
+                                            
+                            }
+
+                            for (let d = 0; d < coluna.length; d++) {
                         
-                    default:
+                                if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1]) {
+                                    // return;    
+                                }else {
+                                                
+                                    if (Array.isArray(espacos[coluna[d]])) {
+                                        let valor_ = espacos[coluna[d]]
+
+                                        for (let e = 0; e < valor_.length; e++) {
+                                            let index = valor_[e].indexOf(`${a}`)
+
+                                            if (index != -1) {
+                                                espacos[coluna[d]].splice(index, 1);
+                                                valor = Object.values(espacos);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        // por linha ----------------------------------------------------------------------------------------
+                        if (ocorrencia[0][2] == ocorrencia[1][2]) {
+                        
+                            let linha = [];
+                            for (let d = 0; d <= 8; d++) {
+                                linha.push(procuraCordenada(linhas[ocorrencia[0][2]-1][d].className));
+                                        
+                            }
+                                    
+                            for (let d = 0; d < linha.length; d++) {
+                                    
+                                if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1]) {
+                                    // return;    
+                                }else {
+                                            
+                                    if (Array.isArray(espacos[linha[d]])) {
+                                        let valor_ = espacos[linha[d]];
+                                                
+                                        for (let e = 0; e < valor_.length; e++) {
+                                            let index = valor_[e].indexOf(`${a}`)
+
+                                            if (index != -1) {      
+                                                espacos[linha[d]].splice(index, 1);
+                                                valor = Object.values(espacos);               
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        // por bloco -----------------------------------------------------------------------------------
+                        if (ocorrencia[0][1] == ocorrencia[1][1] && ocorrencia[0][1] == ocorrencia[2][1]) {
+                            let coluna = [];
+
+                            for (let d = 0; d <= 8; d++) {
+                                coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));      
+                            }
+
+                            for (let d = 0; d < coluna.length; d++) {
+                        
+                                if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1] || coluna[d] == ocorrencia[2]) {
+                                    // return;      
+                                }else {
+                                                
+                                    if (Array.isArray(espacos[coluna[d]])) {
+                                        let valor_ = espacos[coluna[d]]
+                                                    
+                                        for (let e = 0; e < valor_.length; e++) {
+                                            let index = valor_[e].indexOf(`${a}`)
+
+                                            if (index != -1) {
+                                                espacos[coluna[d]].splice(index, 1);
+                                                valor = Object.values(espacos);
+                                                            
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        // por linha --------------------------------------------------------------------------
+                        if (ocorrencia[0][2] == ocorrencia[1][2] && ocorrencia[0][2] == ocorrencia[2][2]) {
+                            let linha = [];
+
+                            for (let d = 0; d <= 8; d++) {
+                                linha.push(procuraCordenada(linhas[ocorrencia[0][2]-1][d].className));
+                                        
+                            }
+            
+                            for (let d = 0; d < linha.length; d++) {
+                                    
+                                if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1] || linha[d] == ocorrencia[2]) {
+                                    // return;      
+                                }else {
+                                            
+                                    if (Array.isArray(espacos[linha[d]])) {
+                                        let valor_ = espacos[linha[d]];
+                                                
+                                        for (let e = 0; e < valor_.length; e++) {
+                                            let index = valor_[e].indexOf(`${a}`);
+
+                                            if (index != -1) {
+                                                espacos[linha[d]].splice(index, 1);
+                                                valor = Object.values(espacos);
+                                                        
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         break;
                 }
-
-                // if (ocorrencia.length == 1) {
-                //     // console.log(`${a}`,ocorrencia)
-                //     let col_ = "col"+ocorrencia[0][1];
-                //     let lin_ = "lin"+ocorrencia[0][2];
-                //     let classe = col_ + " " + lin_;
-                //     let espaco = document.getElementsByClassName(classe);
-                //     let num = `${a}`
-                //     // console.log(`${a}`,ocorrencia)
-                //     // console.log(ocorrencia)
-                //     // console.log(classe)
-                //     // console.log(num)
-                //     espaco[0].innerText = num;
-                //     espaco[0].style.color = "aqua";
-
-                // }else if (ocorrencia.length == 2) {
-                    
-                //     if (ocorrencia[0][1] == ocorrencia[1][1]) {
-                //         let coluna = [];
-                //         for (let d = 0; d <= 8; d++) {
-                //             coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));
-                            
-                //         }
-                        
-                //         for (let d = 0; d < coluna.length; d++) {
-                        
-                //             if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1]) {
-                //                 // return;    
-                //             }else {
-                                
-                //                 if (Array.isArray(espacos[coluna[d]])) {
-                //                     let valor_ = espacos[coluna[d]]
-                //                     for (let b = 0; b < valor_.length; b++) {
-                //                         let index = valor_[b].indexOf(`${a}`)
-                //                         if (index != -1) {
-                //                             espacos[coluna[d]].splice(index, 1);
-                //                             valor = Object.values(espacos);
-                //                         }
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-                //     // por linha ----------------------------------------------------------------
-                //     // console.log(ocorrencia[0], ocorrencia[1])
-                //     if (ocorrencia[0][2] == ocorrencia[1][2]) {
-                        
-                //         let linha = [];
-                //         for (let d = 0; d <= 8; d++) {
-                //             linha.push(procuraCordenada(linhas[ocorrencia[0][1]-1][d].className));
-                            
-                //         }
-                        
-                //         for (let d = 0; d < linha.length; d++) {
-                        
-                //             if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1]) {
-                //                 // return;    
-                //             }else {
-                                
-                //                 if (Array.isArray(espacos[linha[d]])) {
-                //                     let valor_ = espacos[linha[d]];
-                                    
-                //                     for (let b = 0; b < valor_.length; b++) {
-                //                         let index = valor_[b].indexOf(`${a}`)
-                //                         if (index != -1) {
-                //                             // if (linha[d]=="p612") {
-                //                             //     console.log(espacos[linha[d]],espacos.p612,linha[d],`${a}`)
-                //                             //     console.log(ocorrencia[0][2],ocorrencia[1][2])
-                //                             // }
-                //                             espacos[linha[d]].splice(index, 1);
-                //                             valor = Object.values(espacos);
-                                            
-                                            
-                //                         }
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-
-                // }else if (ocorrencia.length == 3) {
-                    
-                //     if (ocorrencia[0][1] == ocorrencia[1][1] && ocorrencia[0][1] == ocorrencia[2][1]) {
-                //         let coluna = [];
-                //         for (let d = 0; d <= 8; d++) {
-                //             coluna.push(procuraCordenada(colunas[ocorrencia[0][1]-1][d].className));
-                            
-                //         }
-
-                //         for (let d = 0; d < coluna.length; d++) {
-                        
-                //             if (coluna[d] == ocorrencia[0] || coluna[d] == ocorrencia[1] || coluna[d] == ocorrencia[2]) {
-                //                 // return;      
-                //             }else {
-                                
-                //                 if (Array.isArray(espacos[coluna[d]])) {
-                //                     let valor_ = espacos[coluna[d]]
-                                    
-                //                     for (let b = 0; b < valor_.length; b++) {
-                                        
-                //                         let index = valor_[b].indexOf(`${a}`)
-                //                         if (index != -1) {
-                //                             espacos[coluna[d]].splice(index, 1);
-                //                             valor = Object.values(espacos);
-                                            
-                //                         }
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-
-                //     if (ocorrencia[0][1] == ocorrencia[1][1] && ocorrencia[0][1] == ocorrencia[2][1]) {
-                //         let linha = [];
-                //         for (let d = 0; d <= 8; d++) {
-                //             linha.push(procuraCordenada(linhas[ocorrencia[0][1]-1][d].className));
-                            
-                //         }
-
-                //         for (let d = 0; d < linha.length; d++) {
-                        
-                //             if (linha[d] == ocorrencia[0] || linha[d] == ocorrencia[1] || linha[d] == ocorrencia[2]) {
-                //                 // return;      
-                //             }else {
-                                
-                //                 if (Array.isArray(espacos[linha[d]])) {
-                //                     let valor_ = espacos[linha[d]]
-                                    
-                //                     for (let b = 0; b < valor_.length; b++) {
-                                        
-                //                         let index = valor_[b].indexOf(`${a}`)
-                //                         if (index != -1) {
-                //                             espacos[linha[d]].splice(index, 1);
-                //                             valor = Object.values(espacos);
-                                            
-                //                         }
-                //                     }
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
                 ocorrencia = []
             }
         }
-        // console.log(espacos)
-        break
+        console.log(espacos)
     }
 }
