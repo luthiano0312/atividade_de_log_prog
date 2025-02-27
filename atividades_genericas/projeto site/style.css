@@ -5,14 +5,20 @@
 }
 
 body{
-    padding: 20px;
+    /* display: flex;
+    justify-content: space-between;
+    flex-direction: column; */
+    height: 100vh;
+    
 }
 
 #header{
+    margin-bottom: 50px;
     background-color: aqua;
     display: flex;
     justify-content: space-between;
     padding-right: 10px;
+    height: 10vh;
 }
 
 #menu{
@@ -31,7 +37,6 @@ li{
 
 #menu>a>li{
     padding: 10px;
-    border-right: 2px solid black;
 }
 
 #menu>a>li:hover{
@@ -41,11 +46,56 @@ li{
 
 #cris{
     
-    margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+}
+
+#main{
+    margin: 50px;
+}
+
+#crisImg{
+    height: 35vh;
+}
+
+#secao2{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+    
+}
+
+#logoImg{
+    border-radius: 50px;
+}
+
+.artigo{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 15px;
+    height: 30vh;
+    width: 20vh;
+    border-radius: 15px;
 }
 
 .secao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: gray;
-    height: 400px;
+    height: 35vh;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.bordaDireita{
+    border-right: 2px solid black;
 }
