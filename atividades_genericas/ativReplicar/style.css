@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+#logo{
+    background-color: aqua;
+}
+#header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#containerHeader1{
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+}
+#containerHeader2{
+    display: flex;
+}
+#section1{
+    background-image: url(img/section1.png);
+}
+#inp1{
+    height: 25px;
+}
+#carrinhoLink{
+    height: 25px;
+}
+#lupinhaPesquisa{
+    
+}
+.link {
+    height: 25px;
+}
