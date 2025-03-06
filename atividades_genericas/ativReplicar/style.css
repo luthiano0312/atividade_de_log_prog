@@ -4,20 +4,24 @@
     margin: 0;
 }
 #logo{
-    background-color: aqua;
+    display: flex;
+    align-items: center;
 }
 #header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 50px;
 }
 #containerHeader1{
     display: flex;
     justify-content: space-between;
-    width: 600px;
+    width: 700px;
+    align-items: center;
 }
 #containerHeader2{
     display: flex;
+    align-items: center;
 }
 #section1{
     background-image: url(img/section1.png);
@@ -28,9 +32,23 @@
 #carrinhoLink{
     height: 25px;
 }
-#lupinhaPesquisa{
-    
+#inp1{
+    border: none;
+    background-color: rgb(228, 228, 228);
+    width: 200px;
+}
+#barraPesquisa{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgb(228, 228, 228);
+    padding: 10px;
+    width: 265px;
 }
 .link {
     height: 25px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
